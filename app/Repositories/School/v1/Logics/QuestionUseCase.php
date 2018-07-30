@@ -14,4 +14,18 @@ abstract class QuestionUseCase
 
     abstract public function handleAddQuestion($request);
 
+    public static function uploadQuestionRegistration(Request $request)
+    {
+        return (new static)->handleUploadQuestionRegistration($request);
+    }
+
+    abstract public function handleUploadQuestionRegistration($request);
+
+    public static function questionRegistrationStatus(Request $request)
+    {
+        return (new static)->handleQuestionRegistrationStatus($request);
+    }
+
+    abstract public function handleQuestionRegistrationStatus($request);
+
 }

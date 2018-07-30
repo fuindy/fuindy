@@ -17,9 +17,14 @@ class CreateQuestionsTable extends Migration
             $table->uuid('id');
             $table->integer('group_question_id');
             $table->integer('type_question_id');
-            $table->uuid('school_id');
+            $table->char('school_id', 36);
+            $table->char('teacher_id', 36);
+            $table->char('department_id', 36)->nullable();
+            $table->integer('class_id')->nullable();
             $table->char('code');
+            $table->string('name', 200);
             $table->char('date_question', 12);
+            $table->char('deadline', 20)->nullable();
             $table->timestamps();
 
             $table->primary('id');

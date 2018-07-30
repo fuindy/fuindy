@@ -13,7 +13,7 @@ class StatusStudentSeeder extends Seeder
     public function run()
     {
         $data = array(
-            ['name' => 'Student'],
+            ['name' => 'student'],
             ['name' => 'alumni'],
             ['name' => 'Suspend'],
             ['name' => 'Apprenticeship'],

@@ -13,8 +13,8 @@ class ViewController extends Controller
 {
     use GlobalModels;
 
-    public function registrationStudent()
+    public function index()
     {
-        //
+        return view('pages.registrationStudent.registration');
     }
 }

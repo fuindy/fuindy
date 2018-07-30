@@ -15,8 +15,8 @@ class CreateMessageRegistrationsTable extends Migration
     {
         Schema::create('message_registrations', function (Blueprint $table) {
             $table->uuid('id');
-            $table->uuid('school_id');
-            $table->uuid('registration_student_id');
+            $table->char('school_id', 36);
+            $table->char('registration_student_id', 36);
             $table->longText('message');
             $table->timestamps();
 

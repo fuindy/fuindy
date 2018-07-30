@@ -15,7 +15,7 @@ class CreateRegistrationDatesTable extends Migration
     {
         Schema::create('registration_dates', function (Blueprint $table) {
             $table->increments('id');
-            $table->uuid('school_id');
+            $table->char('school_id', 36);
             $table->string('start_date', 10);
             $table->string('end_date', 10);
             $table->timestamps();

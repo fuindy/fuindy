@@ -11,6 +11,9 @@ use Illuminate\Database\Eloquent\Model;
 class RegistrationStudent extends Model
 {
     protected $table = 'registration_students';
+    public $incrementing = false;
+    protected $guarded = [''];
+    protected $primaryKey='id';
 
     public function school()
     {

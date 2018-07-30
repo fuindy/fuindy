@@ -3,6 +3,7 @@
 namespace App\Traits\v1\Globals;
 
 use Faker\Provider\Uuid;
+use Illuminate\Support\Facades\Auth;
 
 trait GlobalUtils
 {
@@ -20,4 +21,16 @@ trait GlobalUtils
     {
         return str_random(20) . str_shuffle(str_replace(' ', '', $text)) . '.' . $file->extension();
     }
+
+    private function getUserRequest()
+    {
+        if (!is_null(Auth::user())) { //from helpdesk
+            return Auth::user();
+        } else if (!is_null(Auth::guard('api')->user())) { //from API
+            return Auth::guard('api')->user();
+        } else {
+            return null; //empty
+        }
+    }
+
 }

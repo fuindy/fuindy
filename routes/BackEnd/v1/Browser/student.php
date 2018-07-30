@@ -10,6 +10,14 @@ Route::group(['prefix' => 'v1/b'], function () {
 
             Route::get('registered', 'RegistrationStudentController@getDataRegistration');
 
+            Route::group(['prefix' => 'question.js'], function (){
+
+                Route::get('list', 'QuestionStudentTestController@getListQuestion');
+                Route::get('detail', 'QuestionStudentTestController@getQuestionStudent');
+                Route::post('answer', 'QuestionStudentTestController@checkAnswerStudent');
+
+            });
+
         });
 
     });

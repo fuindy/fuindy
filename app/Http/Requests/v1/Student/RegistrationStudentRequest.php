@@ -25,12 +25,13 @@ class RegistrationStudentRequest extends FormRequest
     {
         return [
             'id' => '',
+            'customer_id' => '',
             'school_id' => 'required',
             'department_id' => 'required',
             'religion_id' => 'required',
             'full_name' => 'required',
             'NISN' => 'required',
-            'email' => 'required|unique',
+            'email' => 'required',
             'place_of_birth' => 'required',
             'date_of_birth' => 'required|date_format:d/m/Y',
             'phone_no' => 'required',
@@ -53,6 +54,11 @@ class RegistrationStudentRequest extends FormRequest
             'mother_place_birth' => 'required',
             'mother_date_birth' => 'required',
             'mother_income' => 'required',
+            'trustee_name' => '',
+            'trustee_occupation' => '',
+            'trustee_place_birth' => '',
+            'trustee_date_birth' => '',
+            'trustee_income' => '',
             'status_registration_id' => 'required',
             'date_registration' => 'required',
         ];

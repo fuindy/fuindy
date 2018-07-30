@@ -15,7 +15,7 @@ class CreateGalleryCustomersTable extends Migration
     {
         Schema::create('gallery_customers', function (Blueprint $table) {
             $table->increments('id');
-            $table->uuid('customer_id');
+            $table->char('customer_id', 36);
             $table->string('gallery_file');
             $table->timestamps();
         });

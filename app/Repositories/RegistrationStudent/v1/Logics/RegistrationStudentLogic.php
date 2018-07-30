@@ -24,9 +24,10 @@ class RegistrationStudentLogic extends RegistrationStudentUseCase
         $getRegister = RegistrationDate::where('start_date', '<=', $today)->where('end_date', '>=', $today)->get();
 
         if ($getRegister) {
-            $resultSchool = [];
+            $resultSchool = array();
 
-            $student = Student::where('customer_id', Auth::user()->customer_id)->first();
+            $student = Student::where('customer_id', isset(Auth::user()->customer_id) ? Auth::user()->customer_id : "f3b0b155-1f7f-3dd1-9542-07a6da456abc")
+                ->first();
 
             $resultStudent = ($student == true) ? $student : [];
 
@@ -52,6 +53,7 @@ class RegistrationStudentLogic extends RegistrationStudentUseCase
 
             }
 
+            $response['isFailed'] = false;
             $response['status'] = 'success';
             $response['message'] = 'Success get data school for registration new student';
             $response['result'] = [
@@ -62,9 +64,10 @@ class RegistrationStudentLogic extends RegistrationStudentUseCase
             ];
 
             return response()->json($response, 200);
-
         } else {
-            $response['status'] = 'error';
+
+            $response['isFailed'] = true;
+            $response['status'] = 'null';
             $response['message'] = 'There\'s not data school today';
 
             return response()->json($response, 200);
@@ -74,20 +77,26 @@ class RegistrationStudentLogic extends RegistrationStudentUseCase
     public function handleRegistration($request)
     {
         !is_null($request->id) ? $request->id : $request->request->add(['id' => $this->uuid()]);
+        !is_null($request->customer_id) ? $request->customer_id : $request->request->add(['customer_id' => Auth::user()->customer_id]);
 
         $registrationStudent = RegistrationStudent::create($request->all());
 
         if ($registrationStudent) {
-            $response['status'] = 'success';
-            $response['message'] = 'Entry data success, please next step.';
-            $response['result'] = ['studentId' => $registrationStudent->id];
-        } else {
-            $response['status'] = 'error';
-            $response['message'] = 'Entry data failed, please try again.';
-            $response['result'] = [];
-        }
 
-        return response()->json($response, 200);
+            $response['isFailed'] = false;
+            $response['status'] = 'success';
+            $response['message'] = 'Entry data success, please next step';
+            $response['result'] = ['registrationId' => $registrationStudent->id];
+
+            return response()->json($response, 200);
+        } else {
+
+            $response['isFailed'] = true;
+            $response['status'] = 'failed';
+            $response['message'] = 'Entry data failed, please try again';
+
+            return response()->json($response, 200);
+        }
     }
 
     public function handleRegistrationAttachment($request)
@@ -110,9 +119,10 @@ class RegistrationStudentLogic extends RegistrationStudentUseCase
 
                 $savePhoto = $registerStudent->save();
             } else {
+
+                $response['isFailed'] = true;
                 $response['status'] = 'error';
                 $response['message'] = 'Your photo personal can\'t saved.';
-                $response['result'] = [];
             }
         }
 
@@ -129,14 +139,16 @@ class RegistrationStudentLogic extends RegistrationStudentUseCase
                 $moveAttachmentImage = $attachment->move($destinationAttachmentPath, $newAttachmentName);
 
                 if ($moveAttachmentImage) {
+
                     $registerAttachment = RegistrationAttachment::create([
                         'registration_student_id' => $request->student_id,
                         'attachment' => $newAttachmentName
                     ]);
                 } else {
+
+                    $response['isFailed'] = true;
                     $response['status'] = 'error';
                     $response['message'] = 'Your photo attachment can\'t saved.';
-                    $response['result'] = [];
                 }
 
             }
@@ -157,27 +169,31 @@ class RegistrationStudentLogic extends RegistrationStudentUseCase
                 $resultProfile = $this->responseErrorPhoto();
             }
 
+            $response['isFailed'] = false;
             $response['status'] = 'success';
-            $response['message'] = 'Your photo has been saved.';
+            $response['message'] = 'Your photo has been saved';
             $response['result'] = [
                 'profile' => $resultProfile,
                 'attachment' => $resultAttachment
             ];
 
+            return response()->json($response);
         } else {
+
+            $response['isFailed'] = true;
             $response['status'] = 'error';
-            $response['message'] = 'Your photo for a profile and attachment can\'t saved.';
-            $response['result'] = [];
+            $response['message'] = 'Your photo for a profile and attachment can\'t saved';
+
+            return response()->json($response);
         }
 
-        return response()->json($response);
     }
 
     private function responseSuccessPhoto($responsePhoto)
     {
         $data = [
             'status' => 'success',
-            'message' => 'Success saved your photo.',
+            'message' => 'Success saved your photo',
             'result' => $responsePhoto
         ];
 
@@ -188,8 +204,7 @@ class RegistrationStudentLogic extends RegistrationStudentUseCase
     {
         $data = [
             'status' => 'error',
-            'message' => 'Can\'t saved your photo.',
-            'result' => []
+            'message' => 'Can\'t saved your photo',
         ];
 
         return $data;

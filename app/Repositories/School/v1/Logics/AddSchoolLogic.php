@@ -9,6 +9,7 @@ use App\Repositories\Components\v1\Transformers\DepartmentTransformer;
 use App\Repositories\School\v1\Logics\AddSchoolUseCase;
 use App\Repositories\School\v1\Models\GallerySchool;
 use App\Repositories\School\v1\Models\School;
+use App\Traits\v1\Globals\GlobalComponentCode;
 use App\Traits\v1\Globals\GlobalUtils;
 use App\Repositories\School\v1\Transformers\SchoolTransformer;
 use Illuminate\Support\Facades\Validator;
@@ -32,21 +33,29 @@ class AddSchoolLogic extends AddSchoolUseCase
             $addSchool = $this->saveAddSchool($request, $idSchool);
 
             if ($addSchool) {
+
+                $response['isFailed'] = false;
                 $response['status'] = 'success';
-                $response['message'] = 'Add school success.';
+                $response['message'] = 'Add school success';
                 $response['result'] = fractal($addSchool, new SchoolTransformer());
+
+                return response()->json($response, 200);
             } else {
+
+                $response['isFailed'] = true;
                 $response['status'] = 'failed';
-                $response['message'] = 'Data for school is failed insert to server.';
-                $response['result'] = [];
+                $response['message'] = 'Data for school is failed insert to server';
+
+                return response()->json($response, 200);
             }
         } else {
-            $response['status'] = 'failed';
-            $response['message'] = 'Data for login is failed insert in to server.';
-            $response['result'] = [];
-        }
 
-        return response()->json($response, 200);
+            $response['isFailed'] = true;
+            $response['status'] = 'failed';
+            $response['message'] = 'Data for login is failed insert in to server';
+
+            return response()->json($response, 200);
+        }
     }
 
     private function saveAddUserSchool($request, $idSchool)
@@ -63,7 +72,7 @@ class AddSchoolLogic extends AddSchoolUseCase
             'full_name' => $request->school_name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'status_active_id' => '1',
+            'status_active_id' => GlobalComponentCode::$STATUS_ACTIVE['ACTIVE'],
             'remember_token' => str_random(10),
         ]);
 
@@ -74,7 +83,7 @@ class AddSchoolLogic extends AddSchoolUseCase
     {
         $addSchool = School::create([
             'id' => $idSchool,
-            'school_group_id' => $request->school_iroup_id,
+            'school_group_id' => $request->school_group_id,
             'school_name' => $request->school_name,
             'email' => $request->email,
             'school_address' => $request->school_address,
@@ -104,7 +113,9 @@ class AddSchoolLogic extends AddSchoolUseCase
         );
 
         if ($validator->fails()) {
-            $response['status'] = 'error';
+
+            $response['isFailed'] = true;
+            $response['status'] = 'empty';
             $response['message'] = 'Missing required content.';
             return response()->json($response, 200);
         }
@@ -117,10 +128,14 @@ class AddSchoolLogic extends AddSchoolUseCase
         ]);
 
         if ($addDepartment) {
+
+            $response['isFailed'] = false;
             $response['status'] = 'success';
             $response['message'] = 'Department success added.';
             $response['result'] = fractal($addDepartment, new DepartmentTransformer());
         } else {
+
+            $response['isFailed'] = true;
             $response['status'] = 'failed';
             $response['message'] = 'Department failed added.';
             $response['result'] = [];
@@ -180,15 +195,21 @@ class AddSchoolLogic extends AddSchoolUseCase
                 ]);
 
             if ($addPhoto) {
+
+                $response['isFailed'] = false;
                 $response['status'] = 'success';
                 $response['message'] = 'Photo Profile and Cover success uploaded to server.';
                 $response['result'] = ['schoolId' => $request->school_id];
             } else {
-                $response['status'] = 'error';
+
+                $response['isFailed'] = true;
+                $response['status'] = 'failed';
                 $response['message'] = 'Photo Profile and Cover can\'t saved.';
                 $response['result'] = [];
             }
         } else {
+
+            $response['isFailed'] = true;
             $response['status'] = 'error';
             $response['message'] = 'Photo Profile and Cover not exists.';
             $response['result'] = [];
@@ -222,7 +243,7 @@ class AddSchoolLogic extends AddSchoolUseCase
 
                 if ($moveGallery) {
                     $addGallery = GallerySchool::create([
-                        'school_id' => $request->schoolId,
+                        'school_id' => $request->school_id,
                         'gallery_school' => $newGalleyName
                     ]);
 
@@ -238,20 +259,30 @@ class AddSchoolLogic extends AddSchoolUseCase
 
         if ($moveGallery != '') {
             if ($addGallery) {
+
+                $response['isFailed'] = false;
                 $response['status'] = 'success';
                 $response['message'] = 'Photo success uploaded.';
                 $response['result'] = ['schoolId' => $resultId];
+
+                return response()->json($response, 200);
             } else {
-                $response['status'] = 'error';
+
+                $response['isFailed'] = true;
+                $response['status'] = 'failed';
                 $response['message'] = 'Photo can\'t saved.';
                 $response['result'] = [];
+
+                return response()->json($response, 200);
             }
         } else {
+
+            $response['isFailed'] = true;
             $response['status'] = 'error';
             $response['message'] = 'Photo can\'t saved.';
             $response['result'] = [];
-        }
 
-        return response()->json($response, 200);
+            return response()->json($response, 200);
+        }
     }
 }

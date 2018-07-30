@@ -14,10 +14,10 @@ class GroupCustomerSeeder extends Seeder
     {
         $data = array(
             ['name' => 'Admin'],
-            ['name' => 'School'],
-            ['name' => 'Student'],
-            ['name' => 'Teacher'],
-            ['name' => 'Visitor']
+            ['name' => 'school'],
+            ['name' => 'student'],
+            ['name' => 'teacher'],
+            ['name' => 'visitor']
         );
 
         if (DB::table('group_customers')->get()->count() > 0) {

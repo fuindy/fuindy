@@ -13,8 +13,9 @@ class GroupNotificationSeeder extends Seeder
     public function run()
     {
         $data = array(
-            ['name' => 'Chatting'],
+            ['name' => 'chatting'],
             ['name' => 'Registration student'],
+            ['name' => 'Question'],
         );
 
         if (DB::table('group_notifications')->get()->count() > 0) {

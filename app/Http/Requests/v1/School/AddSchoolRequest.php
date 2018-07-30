@@ -34,7 +34,7 @@ class AddSchoolRequest extends FormRequest
             'since' => 'required',
             'amount_department' => 'required',
             'amount_student' => 'required',
-            'amount_Teacher' => 'required',
+            'amount_teacher' => 'required',
             'description_school' => 'required',
         ];
     }

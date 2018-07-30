@@ -22,7 +22,8 @@ class LoginController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $response['status'] = 'error';
+            $response['isFailed'] = true;
+            $response['status'] = 'empty';
             $response['message'] = 'Missing required data in form.';
 
             return response()->json($response, 200);

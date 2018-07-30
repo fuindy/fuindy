@@ -16,7 +16,7 @@ class CreateStudentRatingsTable extends Migration
         Schema::create('student_ratings', function (Blueprint $table) {
             $table->uuid('id');
             $table->uuid('customer_id');
-            $table->uuid('student_class_id');
+            $table->integer('student_class_id');
             $table->string('rating', 50);
             $table->timestamps();
 

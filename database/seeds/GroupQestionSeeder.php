@@ -14,7 +14,7 @@ class GroupQestionSeeder extends Seeder
     {
         $data = array(
             ['name' => 'Registration student'],
-            ['name' => 'Exercise Student'],
+            ['name' => 'Exercise student'],
             ['name' => 'Exam student'],
         );
 

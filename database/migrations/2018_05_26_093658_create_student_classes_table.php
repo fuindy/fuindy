@@ -14,12 +14,11 @@ class CreateStudentClassesTable extends Migration
     public function up()
     {
         Schema::create('student_classes', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->increments('id');
+            $table->char('school_id', 36)->nullable();
             $table->integer('school_group_id');
             $table->string('name', 50);
             $table->timestamps();
-
-            $table->primary('id');
         });
     }
 

@@ -15,7 +15,7 @@ class CreateChattingsTable extends Migration
     {
         Schema::create('chattings', function (Blueprint $table) {
             $table->increments('id');
-            $table->uuid('friend_id');
+            $table->char('friend_id', 36);
             $table->string('from', 32);
             $table->string('to', 32);
             $table->longText('content');

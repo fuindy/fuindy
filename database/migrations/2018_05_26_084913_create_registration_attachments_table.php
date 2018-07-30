@@ -15,7 +15,7 @@ class CreateRegistrationAttachmentsTable extends Migration
     {
         Schema::create('registration_attachments', function (Blueprint $table) {
             $table->increments('id');
-            $table->uuid('registration_student_id');
+            $table->char('registration_student_id', 36);
             $table->string('attachment');
             $table->timestamps();
         });
