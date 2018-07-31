@@ -14,6 +14,14 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->assertTrue(true);
+        $response = $this->withHeaders([
+            'X-Header' => 'Value',
+        ])->json('POST', '/test', ['name' => 'telagasari']);
+
+        $response
+            ->assertStatus(201)
+            ->assertJson([
+                'created' => true,
+            ]);
     }
 }
