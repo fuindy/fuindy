@@ -155,12 +155,12 @@ return [
          * Application Service Providers...
          */
         Laravel\Passport\PassportServiceProvider::class,
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
+        Fuindy\Providers\AppServiceProvider::class,
+        Fuindy\Providers\AuthServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-         App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+         Fuindy\Providers\BroadcastServiceProvider::class,
+        Fuindy\Providers\EventServiceProvider::class,
+        Fuindy\Providers\RouteServiceProvider::class,
 
     ],
 

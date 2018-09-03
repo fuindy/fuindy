@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Repositories\Notifications\v1\Models;
+namespace Fuindy\Repositories\Notifications\v1\Models;
 
-use App\Repositories\Components\v1\Models\GroupNotification;
+use Fuindy\Repositories\Components\v1\Models\GroupNotification;
 use Illuminate\Database\Eloquent\Model;
 
 class Notification extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = 'notifications';
+
+    protected $guarded = [''];
 
     public function group()
     {

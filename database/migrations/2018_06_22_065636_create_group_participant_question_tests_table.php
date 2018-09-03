@@ -13,7 +13,7 @@ class CreateGroupParticipantQuestionTestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_participant_question_tests', function (Blueprint $table) {
+        Schema::connection('customer')->create('group_participant_question_tests', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name', 36);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateGroupParticipantQuestionTestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_participant_question_tests');
+        Schema::connection('customer')->dropIfExists('group_participant_question_tests');
     }
 }

@@ -13,7 +13,7 @@ class CreateOauthClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('oauth_clients', function (Blueprint $table) {
+        Schema::connection('customer')->create('oauth_clients', function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('user_id')->index()->nullable();
             $table->string('name');
@@ -33,6 +33,6 @@ class CreateOauthClientsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('oauth_clients');
+        Schema::connection('customer')->drop('oauth_clients');
     }
 }

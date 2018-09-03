@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Traits\v1\Globals;
+namespace Fuindy\Traits\v1\Globals;
 
-use App\Repositories\Components\v1\Models\Department;
-use App\Repositories\Components\v1\Models\GroupCustomer;
-use App\Repositories\Components\v1\Models\GroupSchool;
-use App\Repositories\Components\v1\Models\Religion;
+use Fuindy\Repositories\Components\v1\Models\Department;
+use Fuindy\Repositories\Components\v1\Models\GroupCustomer;
+use Fuindy\Repositories\Components\v1\Models\GroupSchool;
+use Fuindy\Repositories\Components\v1\Models\Religion;
 
 trait GlobalModels
 {

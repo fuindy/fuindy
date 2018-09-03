@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Repositories\Student\v1\Models;
+namespace Fuindy\Repositories\Student\v1\Models;
 
-use App\Repositories\School\v1\Models\School;
+use Fuindy\Repositories\School\v1\Models\School;
 use Illuminate\Database\Eloquent\Model;
 
 class AttendanceStudent extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = 'attendance_students';
+
+    protected $guarded = [''];
 
     public function school()
     {

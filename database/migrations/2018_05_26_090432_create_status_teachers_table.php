@@ -13,7 +13,7 @@ class CreateStatusTeachersTable extends Migration
      */
     public function up()
     {
-        Schema::create('status_teachers', function (Blueprint $table) {
+        Schema::connection('customer')->create('status_teachers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateStatusTeachersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_teachers');
+        Schema::connection('customer')->dropIfExists('status_teachers');
     }
 }

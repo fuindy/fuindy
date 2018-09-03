@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Repositories\Student\v1\Jobs;
+namespace Fuindy\Repositories\Student\v1\Jobs;
 
-use App\Repositories\Components\v1\Models\HistoryQuestion;
-use App\Repositories\School\v1\Models\QuestionDetail;
-use App\Repositories\Student\v1\Models\StudentQuestionTest;
-use App\Repositories\Student\v1\Models\StudentQuestionTestDetail;
-use App\Traits\v1\Globals\GlobalComponentCode;
-use App\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Repositories\Components\v1\Models\HistoryQuestion;
+use Fuindy\Repositories\School\v1\Models\QuestionDetail;
+use Fuindy\Repositories\Student\v1\Models\StudentQuestionTest;
+use Fuindy\Repositories\Student\v1\Models\StudentQuestionTestDetail;
+use Fuindy\Traits\v1\Globals\GlobalComponentCode;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;

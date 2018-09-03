@@ -13,7 +13,7 @@ class CreateRegistrationDatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('registration_dates', function (Blueprint $table) {
+        Schema::connection('customer')->create('registration_dates', function (Blueprint $table) {
             $table->increments('id');
             $table->char('school_id', 36);
             $table->string('start_date', 10);
@@ -29,6 +29,6 @@ class CreateRegistrationDatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registration_dates');
+        Schema::connection('customer')->dropIfExists('registration_dates');
     }
 }

@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Repositories\School\v1\Logics;
+namespace Fuindy\Repositories\School\v1\Logics;
 
-use App\Http\Controllers\BackEnd\Browser\v1\Traits\Config;
-use App\Repositories\Account\v1\Models\User;
-use App\Repositories\Components\v1\Models\Department;
-use App\Repositories\Components\v1\Transformers\DepartmentTransformer;
-use App\Repositories\School\v1\Logics\AddSchoolUseCase;
-use App\Repositories\School\v1\Models\GallerySchool;
-use App\Repositories\School\v1\Models\School;
-use App\Traits\v1\Globals\GlobalComponentCode;
-use App\Traits\v1\Globals\GlobalUtils;
-use App\Repositories\School\v1\Transformers\SchoolTransformer;
+use Fuindy\Http\Controllers\BackEnd\Browser\v1\Traits\Config;
+use Fuindy\Repositories\Account\v1\Models\User;
+use Fuindy\Repositories\Components\v1\Models\Department;
+use Fuindy\Repositories\Components\v1\Transformers\DepartmentTransformer;
+use Fuindy\Repositories\School\v1\Logics\AddSchoolUseCase;
+use Fuindy\Repositories\Gallery\v1\Models\GallerySchool;
+use Fuindy\Repositories\School\v1\Models\School;
+use Fuindy\Traits\v1\Globals\GlobalComponentCode;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Repositories\School\v1\Transformers\SchoolTransformer;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 class AddSchoolLogic extends AddSchoolUseCase
@@ -138,7 +139,6 @@ class AddSchoolLogic extends AddSchoolUseCase
             $response['isFailed'] = true;
             $response['status'] = 'failed';
             $response['message'] = 'Department failed added.';
-            $response['result'] = [];
         }
 
         return response()->json($response, 200);
@@ -167,7 +167,6 @@ class AddSchoolLogic extends AddSchoolUseCase
             if (!$movePhotoProfile) {
                 $response['status'] = 'error';
                 $response['message'] = 'Photo Profile can\'t save in server.';
-                $response['result'] = [];
             }
         }
 
@@ -182,7 +181,6 @@ class AddSchoolLogic extends AddSchoolUseCase
             if (!$movePhotoCover) {
                 $response['status'] = 'error';
                 $response['message'] = 'Photo Cover can\'t save in server.';
-                $response['result'] = [];
             }
         }
 
@@ -205,14 +203,12 @@ class AddSchoolLogic extends AddSchoolUseCase
                 $response['isFailed'] = true;
                 $response['status'] = 'failed';
                 $response['message'] = 'Photo Profile and Cover can\'t saved.';
-                $response['result'] = [];
             }
         } else {
 
             $response['isFailed'] = true;
             $response['status'] = 'error';
             $response['message'] = 'Photo Profile and Cover not exists.';
-            $response['result'] = [];
         }
 
         return response()->json($response, 200);
@@ -225,62 +221,72 @@ class AddSchoolLogic extends AddSchoolUseCase
     */
     public function handleAddGallery($request)
     {
-        $moveGallery = '';
-        $addGallery = '';
-        $resultId = [];
-
         /*Handle image uploads*/
         if ($request->hasFile('gallery_school') && $request->file('gallery_school')->isValid()) {
 
             $gallerySchools = $request->file('gallery_school');
 
-            foreach ($gallerySchools as $gallerySchool) {
+            $moveGallery = '';
+            $addGallery = GallerySchool::create([
+                'school_id' => $request->school_id,
+                'caption' => $request->caption,
+                'date_upload' => Carbon::now()->format('d/m/Y H:i')
+            ]);
 
-                /*Save new image*/
-                $newGalleyName = $this->getPhotoName($gallerySchool, str_random(5));
-                $destinationGalleryPath = Config::$IMAGE_PATH['GALLERY_IMAGE'];
-                $moveGallery = $gallerySchool->move($destinationGalleryPath, $newGalleyName);
+            if ($addGallery) {
 
-                if ($moveGallery) {
-                    $addGallery = GallerySchool::create([
-                        'school_id' => $request->school_id,
-                        'gallery_school' => $newGalleyName
-                    ]);
+                foreach ($gallerySchools as $gallerySchool) {
 
-                    if (!$addGallery) {
-                        $resultId = [];
-                    } else {
-                        $resultId = $addGallery->school_id;
+                    /*Save new image*/
+                    $newGalleyName = $this->getPhotoName($gallerySchool, str_random(5));
+                    $destinationGalleryPath = Config::$IMAGE_PATH['GALLERY_IMAGE'];
+                    $moveGallery = $gallerySchool->move($destinationGalleryPath, $newGalleyName);
+
+                    if ($moveGallery) {
+                        $saveFile = GallerySchool::create([
+                            'gallery_id' => $addGallery->id,
+                            'file' => $newGalleyName
+                        ]);
+
+                        if (!$saveFile) {
+
+                            $response['isFailed'] = true;
+                            $response['status'] = 'failed';
+                            $response['message'] = 'Photo can\'t saved.';
+
+                            return response()->json($response, 200);
+                        }
                     }
                 }
+            } else {
+
+                $response['isFailed'] = true;
+                $response['status'] = 'failed';
+                $response['message'] = 'Upload gallery failed';
+
+                return response()->json($response, 200);
             }
 
-        }
-
-        if ($moveGallery != '') {
-            if ($addGallery) {
+            if ($moveGallery != '') {
 
                 $response['isFailed'] = false;
                 $response['status'] = 'success';
                 $response['message'] = 'Photo success uploaded.';
-                $response['result'] = ['schoolId' => $resultId];
 
                 return response()->json($response, 200);
             } else {
 
                 $response['isFailed'] = true;
-                $response['status'] = 'failed';
+                $response['status'] = 'error';
                 $response['message'] = 'Photo can\'t saved.';
-                $response['result'] = [];
 
                 return response()->json($response, 200);
             }
         } else {
 
             $response['isFailed'] = true;
-            $response['status'] = 'error';
-            $response['message'] = 'Photo can\'t saved.';
-            $response['result'] = [];
+            $response['status'] = 'empty';
+            $response['message'] = 'Data photo does not exist.';
 
             return response()->json($response, 200);
         }

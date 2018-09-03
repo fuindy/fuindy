@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Components\v1\Transformers;
+namespace Fuindy\Repositories\Components\v1\Transformers;
 
-use App\Repositories\Components\v1\Models\Department;
+use Fuindy\Repositories\Components\v1\Models\Department;
 use League\Fractal\TransformerAbstract;
 
 class DepartmentTransformer extends TransformerAbstract

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Teacher\v1\Logics;
+namespace Fuindy\Repositories\Teacher\v1\Logics;
 
-use App\Http\Requests\v1\School\AddSchoolRequest;
+use Fuindy\Http\Requests\v1\School\AddSchoolRequest;
 use Illuminate\Http\Request;
 
 abstract class QuestionUseCase

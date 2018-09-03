@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->call([
+            AttendanceSchoolSettingSeeder::class,
             GroupCustomerSeeder::class,
             GroupNotificationSeeder::class,
             GroupOrganisationClassSeeder::class,
@@ -38,6 +39,7 @@ class DatabaseSeeder extends Seeder
             StatusStudentSeeder::class,
             StatusTeacherSeeder::class,
             StudentClassSeeder::class,
+            TypeAttendanceSeeder::class,
             TypeQuestionSeeder::class,
         ]);
     }

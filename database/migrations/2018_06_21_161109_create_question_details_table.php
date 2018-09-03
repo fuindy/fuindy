@@ -13,7 +13,7 @@ class CreateQuestionDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('question_details', function (Blueprint $table) {
+        Schema::connection('customer')->create('question_details', function (Blueprint $table) {
             $table->uuid('id');
             $table->char('question_id', 36);
             $table->longText('content');
@@ -36,6 +36,6 @@ class CreateQuestionDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_details');
+        Schema::connection('customer')->dropIfExists('question_details');
     }
 }

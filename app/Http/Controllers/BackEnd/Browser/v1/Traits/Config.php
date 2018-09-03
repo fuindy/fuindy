@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\Browser\v1\Traits;
+namespace Fuindy\Http\Controllers\BackEnd\Browser\v1\Traits;
 
 class Config
 {

@@ -13,7 +13,7 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::connection('customer')->create('students', function (Blueprint $table) {
             $table->uuid('id');
             $table->uuid('customer_id');
             $table->char('school_id', 36);
@@ -64,6 +64,6 @@ class CreateStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        Schema::connection('customer')->dropIfExists('students');
     }
 }

@@ -13,7 +13,7 @@ class CreateChattingGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chatting_groups', function (Blueprint $table) {
+        Schema::connection('chatting')->create('chatting_groups', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('name_group', 50);
             $table->string('photo_profile');
@@ -33,6 +33,6 @@ class CreateChattingGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chatting_groups');
+        Schema::connection('chatting')->dropIfExists('chatting_groups');
     }
 }

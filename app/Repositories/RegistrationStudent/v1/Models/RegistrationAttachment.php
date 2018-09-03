@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Repositories\RegistrationStudent\v1\Models;
+namespace Fuindy\Repositories\RegistrationStudent\v1\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class RegistrationAttachment extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = 'registration_attachments';
+
+    protected $guarded = [''];
 
     public function registration()
     {

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Repositories\Student\v1\Logics;
+namespace Fuindy\Repositories\Student\v1\Logics;
 
-use App\Repositories\Components\v1\Models\HistoryQuestion;
-use App\Repositories\School\v1\Models\QuestionDetail;
-use App\Repositories\Student\v1\Models\StudentQuestionTest;
-use App\Repositories\Student\v1\Models\StudentQuestionTestDetail;
-use App\Repositories\Student\v1\Transformers\ListQuestionTransformer;
-use App\Repositories\Student\v1\Transformers\ViewQuestionTransformer;
-use App\Traits\v1\Globals\GlobalComponentCode;
-use App\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Repositories\Components\v1\Models\HistoryQuestion;
+use Fuindy\Repositories\School\v1\Models\QuestionDetail;
+use Fuindy\Repositories\Student\v1\Models\StudentQuestionTest;
+use Fuindy\Repositories\Student\v1\Models\StudentQuestionTestDetail;
+use Fuindy\Repositories\Student\v1\Transformers\ListQuestionTransformer;
+use Fuindy\Repositories\Student\v1\Transformers\ViewQuestionTransformer;
+use Fuindy\Traits\v1\Globals\GlobalComponentCode;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 

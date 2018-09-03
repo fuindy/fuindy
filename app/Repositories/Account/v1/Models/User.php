@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Account\v1\Models;
+namespace Fuindy\Repositories\Account\v1\Models;
 
-use App\Repositories\School\v1\Models\School;
+use Fuindy\Repositories\School\v1\Models\School;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,6 +14,8 @@ class User extends Authenticatable implements CanResetPassword
     use Notifiable;
     use HasRoles;
     use HasApiTokens;
+
+    protected $connection = 'customer';
 
     protected $table = 'users';
 

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Repositories\School\v1\Logics;
+namespace Fuindy\Repositories\School\v1\Logics;
 
-use App\Repositories\Account\v1\Models\User;
-use App\Repositories\RegistrationStudent\v1\Models\MessageRegistration;
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationDate;
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationStudent;
-use App\Repositories\School\v1\Logics\AddSchoolUseCase;
-use App\Repositories\School\v1\Models\School;
-use App\Repositories\School\v1\Transformers\RegistrationStudentTransformation;
-use App\Repositories\Student\v1\Models\Student;
-use App\Traits\v1\Globals\GlobalComponentCode;
-use App\Traits\v1\Globals\GlobalUtils;
-use App\Repositories\School\v1\Transformers\SchoolTransformer;
+use Fuindy\Repositories\Account\v1\Models\User;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\MessageRegistration;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationDate;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationStudent;
+use Fuindy\Repositories\School\v1\Logics\AddSchoolUseCase;
+use Fuindy\Repositories\School\v1\Models\School;
+use Fuindy\Repositories\School\v1\Transformers\RegistrationStudentTransformation;
+use Fuindy\Repositories\Student\v1\Models\Student;
+use Fuindy\Traits\v1\Globals\GlobalComponentCode;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Repositories\School\v1\Transformers\SchoolTransformer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 

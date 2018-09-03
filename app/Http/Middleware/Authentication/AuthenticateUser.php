@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Middleware\Authentication;
+namespace Fuindy\Http\Middleware\Authentication;
 
-use App\Traits\v1\Account\LoginAttemptCase;
+use Fuindy\Traits\v1\Account\LoginAttemptCase;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,10 +20,10 @@ class AuthenticateUser
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->guest()) {
-            if ($request->json()) {
+            if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->back();
+                return redirect()->guest('login');
             }
         }
 

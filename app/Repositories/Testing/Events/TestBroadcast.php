@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Events;
+namespace Fuindy\Events;
 
+use Fuindy\Repositories\Notifications\v1\Models\Notification;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -14,14 +15,29 @@ class TestBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $broadcastQueue = 'broadcaster';
+
+    public $customerId;
+
+    public $title;
+    public $message;
+    public $url;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($customerId, $notificationId)
     {
-        //
+        $this->customerId = $customerId;
+        $notification = Notification::find($notificationId);
+
+        if ($notification) {
+            $this->title = $notification->title;
+            $this->message = $notification->message;
+            $this->url = $notification->url;
+        }
     }
 
     /**
@@ -31,6 +47,6 @@ class TestBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-name');
+        return new PrivateChannel('notify.' . $this->customerId);
     }
 }

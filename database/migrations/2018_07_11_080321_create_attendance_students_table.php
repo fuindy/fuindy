@@ -13,32 +13,18 @@ class CreateAttendanceStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendance_students', function (Blueprint $table) {
+        Schema::connection('customer')->create('attendance_students', function (Blueprint $table) {
             $table->increments('id');
             $table->char('school_id', 36);
             $table->char('student_id', 36);
             $table->integer('student_class_id');
-            $table->char('day', 12);
-            $table->char('date', 15);
+            $table->char('date', 20);
+            $table->char('time', 10)->nullable();
+            $table->tinyInteger('hour_study')->nullable();
             $table->tinyInteger('attend')->nullable();
             $table->string('explanation')->nullable();
-            $table->tinyInteger('first_hour')->nullable();
-            $table->string('explanation_first')->nullable();
-            $table->tinyInteger('second_hour')->nullable();
-            $table->string('explanation_second')->nullable();
-            $table->tinyInteger('third_hour')->nullable();
-            $table->string('explanation_third')->nullable();
-            $table->tinyInteger('fourth_hour')->nullable();
-            $table->string('explanation_fourth')->nullable();
-            $table->tinyInteger('fifth_hour')->nullable();
-            $table->string('explanation_fifth')->nullable();
-            $table->tinyInteger('sixth_hour')->nullable();
-            $table->string('explanation_sixth')->nullable();
-            $table->tinyInteger('seventh_hour')->nullable();
-            $table->string('explanation_seventh')->nullable();
-            $table->tinyInteger('eighth_hour')->nullable();
-            $table->string('explanation_eighth')->nullable();
-            $table->tinyInteger('homeroom_teacher_confirm')->default(0);
+            $table->tinyInteger('teacher_confirm')->default(0);
+            $table->text('explanation_teacher')->nullable();
             $table->timestamps();
         });
     }
@@ -50,6 +36,6 @@ class CreateAttendanceStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendance_students');
+        Schema::connection('customer')->dropIfExists('attendance_students');
     }
 }

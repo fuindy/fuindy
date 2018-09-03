@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Middleware\Authentication;
+namespace Fuindy\Http\Middleware\Authentication;
 
-use App\Traits\v1\Account\LoginAttemptCase;
+use Fuindy\Traits\v1\Account\LoginAttemptCase;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 

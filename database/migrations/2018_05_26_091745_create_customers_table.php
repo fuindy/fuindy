@@ -13,7 +13,7 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::connection('customer')->create('customers', function (Blueprint $table) {
             $table->uuid('id');
             $table->integer('customer_group_id');
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::connection('customer')->dropIfExists('customers');
     }
 }

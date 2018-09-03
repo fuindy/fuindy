@@ -13,7 +13,7 @@ class CreateStatusActivesTable extends Migration
      */
     public function up()
     {
-        Schema::create('status_actives', function (Blueprint $table) {
+        Schema::connection('customer')->create('status_actives', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateStatusActivesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_actives');
+        Schema::connection('customer')->dropIfExists('status_actives');
     }
 }

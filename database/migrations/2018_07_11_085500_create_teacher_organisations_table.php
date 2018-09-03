@@ -13,7 +13,7 @@ class CreateTeacherOrganisationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('teacher_organisations', function (Blueprint $table) {
+        Schema::connection('customer')->create('teacher_organisations', function (Blueprint $table) {
             $table->increments('id');
             $table->char('school_id', 36);
             $table->char('teacher_id', 36);
@@ -29,6 +29,6 @@ class CreateTeacherOrganisationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teacher_organisations');
+        Schema::connection('customer')->dropIfExists('teacher_organisations');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\API\v1\Traits;
+namespace Fuindy\Http\Controllers\BackEnd\API\v1\Traits;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

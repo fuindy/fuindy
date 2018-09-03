@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\v1\Globals;
+namespace Fuindy\Traits\v1\Globals;
 
 class ResponseCodes
 {

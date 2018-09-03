@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Repositories\School\v1\Logics;
+namespace Fuindy\Repositories\School\v1\Logics;
 
-use App\Http\Controllers\BackEnd\Browser\v1\Traits\Config;
-use App\Repositories\Account\v1\Models\User;
-use App\Repositories\Components\v1\Models\Department;
-use App\Repositories\Components\v1\Transformers\DepartmentTransformer;
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationQuestionTest;
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationStudent;
-use App\Repositories\School\v1\Logics\AddSchoolUseCase;
-use App\Repositories\School\v1\Models\DetailQuestion;
-use App\Repositories\School\v1\Models\GallerySchool;
-use App\Repositories\School\v1\Models\Question;
-use App\Repositories\School\v1\Models\QuestionDetail;
-use App\Repositories\School\v1\Models\QuestionTest;
-use App\Repositories\School\v1\Models\School;
-use App\Repositories\Student\v1\Models\Student;
-use App\Repositories\Student\v1\Models\StudentQuestionTest;
-use App\Traits\v1\Globals\GlobalComponentCode;
-use App\Traits\v1\Globals\GlobalUtils;
-use App\Repositories\School\v1\Transformers\SchoolTransformer;
+use Fuindy\Http\Controllers\BackEnd\Browser\v1\Traits\Config;
+use Fuindy\Repositories\Account\v1\Models\User;
+use Fuindy\Repositories\Components\v1\Models\Department;
+use Fuindy\Repositories\Components\v1\Transformers\DepartmentTransformer;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationQuestionTest;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationStudent;
+use Fuindy\Repositories\School\v1\Logics\AddSchoolUseCase;
+use Fuindy\Repositories\School\v1\Models\DetailQuestion;
+use Fuindy\Repositories\Gallery\v1\Models\GallerySchool;
+use Fuindy\Repositories\School\v1\Models\Question;
+use Fuindy\Repositories\School\v1\Models\QuestionDetail;
+use Fuindy\Repositories\School\v1\Models\QuestionTest;
+use Fuindy\Repositories\School\v1\Models\School;
+use Fuindy\Repositories\Student\v1\Models\Student;
+use Fuindy\Repositories\Student\v1\Models\StudentQuestionTest;
+use Fuindy\Traits\v1\Globals\GlobalComponentCode;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Repositories\School\v1\Transformers\SchoolTransformer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 

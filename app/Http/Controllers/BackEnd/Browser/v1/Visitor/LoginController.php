@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\Browser\v1\Visitor;
+namespace Fuindy\Http\Controllers\BackEnd\Browser\v1\Visitor;
 
-use App\Repositories\Account\v1\Models\Customer;
-use App\Repositories\Account\v1\Models\User;
-use App\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Repositories\Account\v1\Models\Customer;
+use Fuindy\Repositories\Account\v1\Models\User;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Fuindy\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller

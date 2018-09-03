@@ -31,3 +31,7 @@
 @stack('child-scripts-plugins') <!-- Make sure it is put below app.js -->
 @stack('child-page-controller') <!-- Make sure it is put below app.js -->
 
+@if(request()->route()->getName()!='login')
+    <script src="{{ asset('js/display/v1/notification/main.js') }}"></script>
+@endif
+

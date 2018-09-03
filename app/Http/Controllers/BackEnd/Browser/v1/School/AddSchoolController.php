@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\Browser\v1\School;
+namespace Fuindy\Http\Controllers\BackEnd\Browser\v1\School;
 
-use App\Http\Requests\v1\School\AddSchoolRequest;
-use App\Repositories\School\v1\Logics\AddSchoolLogic;
-use App\Traits\v1\Globals\GlobalUtils;
-use App\Http\Controllers\Controller;
+use Fuindy\Http\Requests\v1\School\AddSchoolRequest;
+use Fuindy\Repositories\School\v1\Logics\AddSchoolLogic;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class AddSchoolController extends Controller

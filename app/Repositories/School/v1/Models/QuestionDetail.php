@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Repositories\School\v1\Models;
+namespace Fuindy\Repositories\School\v1\Models;
 
-use App\Repositories\Components\v1\Models\QuestionAnswer;
+use Fuindy\Repositories\Components\v1\Models\QuestionAnswer;
 use Illuminate\Database\Eloquent\Model;
 
 class QuestionDetail extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = "question_details";
 
     public $incrementing = false;

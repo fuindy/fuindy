@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Repositories\School\v1\Transformers;
+namespace Fuindy\Repositories\School\v1\Transformers;
 
-use App\Repositories\Components\v1\Models\Department;
-use App\Repositories\Components\v1\Transformers\BasicComponentTransformer;
-use App\Repositories\RegistrationStudent\v1\Models\MessageRegistration;
-use App\Repositories\Student\v1\Models\StudentClass;
+use Fuindy\Repositories\Components\v1\Models\Department;
+use Fuindy\Repositories\Components\v1\Transformers\BasicComponentTransformer;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\MessageRegistration;
+use Fuindy\Repositories\Student\v1\Models\StudentClass;
 use League\Fractal\TransformerAbstract;
 
 class RegistrationStudentTransformation extends TransformerAbstract

@@ -13,10 +13,12 @@ class CreateGalleryCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('gallery_customers', function (Blueprint $table) {
+        Schema::connection('customer')->create('gallery_customers', function (Blueprint $table) {
             $table->increments('id');
             $table->char('customer_id', 36);
-            $table->string('gallery_file');
+            $table->string('caption')->nullable();
+            $table->char('date_upload', 25);
+            $table->char('last_update', 25)->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateGalleryCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gallery_customers');
+        Schema::connection('customer')->dropIfExists('gallery_customers');
     }
 }

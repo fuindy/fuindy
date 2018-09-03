@@ -1,15 +1,30 @@
 <?php
 
-namespace App\Traits\v1\Globals;
+namespace Fuindy\Traits\v1\Globals;
 
 class GlobalComponentCode
 {
+
+    /*
+     |-------------------------------------------------------------------------
+     | Types Configurations
+     |--------------------------------------------------------------------------
+   */
+
     public static $FCM_INTENT_TYPE = [
         'DEFAULT' => 'home',
         'HOME' => 'home',
         'TEACHER' => 'teacher',
         'STUDENT' => 'student',
         'SCHOOL' => 'school'
+    ];
+
+    public static $GROUP_CUSTOMER = [
+        'ADMIN' => 1,
+        'SCHOOL' => 2,
+        'STUDENT' => 3,
+        'TEACHER' => 4,
+        'VISITOR' => 5
     ];
 
     public static $GROUP_QUESTION = [
@@ -65,7 +80,14 @@ class GlobalComponentCode
     public static $NOTIFICATION_GROUP_TYPE = [
         'GENERAL' => 1,
         'ADD_QUESTION' => 2,
-        'ANSWER' => 3
+        'ANSWER' => 3,
+        'CHATTING' => 4,
+        'STORY' => 5,
+    ];
+
+    public static $IS_DELETED = [
+        'FALSE' => 0,
+        'TRUE' => 1
     ];
 
     public static $NOTIFY_TYPE = [
@@ -116,4 +138,10 @@ class GlobalComponentCode
         'STUDENT' => 2
     ];
 
+
+    /*
+      |-------------------------------------------------------------------------
+      | Paths Configurations
+      |--------------------------------------------------------------------------
+    */
 }

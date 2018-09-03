@@ -17,6 +17,7 @@ mix.copy([
     'resources/assets/plugins/select2-4.0.5/css/select2.min.css',
     'resources/assets/plugins/switchery/css/switchery.min.css',
     'resources/assets/plugins/bootstrap-datepicker/css/datepicker3.css',
+    'resources/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css',
     'resources/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css',
 
 ], 'public/plugins/css/')
@@ -60,7 +61,7 @@ mix.copy([
  |--------------------------------------------------------------------------
  */
 // mix.copyDirectory('node_modules/socket.io-client', 'public/plugins/socketioclient');
-// mix.copyDirectory('resources/assets/plugins/socketioclient', 'public/plugins/socketioclient');
+mix.copyDirectory('resources/assets/plugins/socketioclient', 'public/plugins/socketioclient');
 
 /*
  |--------------------------------------------------------------------------
@@ -156,30 +157,19 @@ mix.copy('resources/assets/core/css/pages-icons.css', 'public/scaffolding/core/c
 mix.copyDirectory('resources/assets/core/img', 'public/scaffolding/core/img');
 mix.copyDirectory('resources/assets/core/fonts', 'public/scaffolding/core/fonts');
 
-
-
 /*
  |--------------------------------------------------------------------------
- | Sounds
+ | Directory for login
  |--------------------------------------------------------------------------
+ | Copy all directory plugins for theme login
  */
-// mix.copyDirectory('resources/assets/sounds', 'public/sounds');
 
-/*
- |--------------------------------------------------------------------------
- | Scripts
- |--------------------------------------------------------------------------
- */
-// mix.copyDirectory('resources/assets/script', 'public/script');
+mix.copyDirectory('resources/assets/plugins/animate', 'public/plugins/animate');
+mix.copyDirectory('resources/assets/plugins/animsition', 'public/plugins/animsition');
+mix.copyDirectory('resources/assets/plugins/countdowntime', 'public/plugins/countdowntime');
+mix.copyDirectory('resources/assets/plugins/css-hamburgers', 'public/plugins/css-hamburgers');
 
 
-
-/*
- |--------------------------------------------------------------------------
- | Display compiled JS
- |--------------------------------------------------------------------------
- */
-mix.js('resources/assets/js/display/v1/display', 'public/js/display/v1/');
 
 /*
  |--------------------------------------------------------------------------

@@ -1,15 +1,19 @@
 <?php
 
-namespace App\Repositories\Components\v1\Models;
+namespace Fuindy\Repositories\Components\v1\Models;
 
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationStudent;
-use App\Repositories\School\v1\Models\Question;
-use App\Repositories\Student\v1\Models\Student;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationStudent;
+use Fuindy\Repositories\School\v1\Models\Question;
+use Fuindy\Repositories\Student\v1\Models\Student;
 use Illuminate\Database\Eloquent\Model;
 
 class HistoryQuestion extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = 'history_questions';
+
+    protected $guarded = [''];
 
     public function question()
     {

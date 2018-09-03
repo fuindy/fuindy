@@ -39,19 +39,34 @@ return [
             'prefix' => '',
         ],
 
-        'mysql' => [
+        'customer' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'unix_socket' => env('DB_SOCKET', ''),
+            'host' => env('DB_CUSTOMER_HOST', '127.0.0.1'),
+            'port' => env('DB_CUSTOMER_PORT', '3306'),
+            'database' => env('DB_CUSTOMER_DATABASE', 'fuindy_customer_db'),
+            'username' => env('DB_CUSTOMER_USERNAME', 'root'),
+            'password' => env('DB_CUSTOMER_PASSWORD', ''),
+            'unix_socket' => env('DB_CUSTOMER_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'strict' => true,
-            'engine' => null,
+            'engine' => 'InnoDB',
+        ],
+
+        'chatting' => [
+            'driver' => 'mysql',
+            'host' => env('DB_CHATTING_HOST', '127.0.0.1'),
+            'port' => env('DB_CHATTING_PORT', '3306'),
+            'database' => env('DB_CHATTING_DATABASE', 'fuindy_chatting_db'),
+            'username' => env('DB_CHATTING_USERNAME', 'root'),
+            'password' => env('DB_CHATTING_PASSWORD', ''),
+            'unix_socket' => env('DB_CHATTING_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => 'InnoDB',
         ],
 
         'pgsql' => [

@@ -13,7 +13,7 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::connection('customer')->create('questions', function (Blueprint $table) {
             $table->uuid('id');
             $table->integer('group_question_id');
             $table->integer('type_question_id');
@@ -38,6 +38,6 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::connection('customer')->dropIfExists('questions');
     }
 }

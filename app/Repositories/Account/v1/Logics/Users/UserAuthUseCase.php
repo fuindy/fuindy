@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Account\v1\Logics\Users;
+namespace Fuindy\Repositories\Account\v1\Logics\Users;
 
 use Illuminate\Http\Request;
 

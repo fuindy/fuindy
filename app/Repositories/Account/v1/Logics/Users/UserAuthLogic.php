@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Repositories\Account\v1\Logics\Users;
+namespace Fuindy\Repositories\Account\v1\Logics\Users;
 
-use App\Http\Controllers\BackEnd\API\v1\Traits\IssueTokenTrait;
-use App\Repositories\Account\v1\Logics\Users\UserAuthUseCase;
-use App\Repositories\Account\v1\Models\User;
-use App\Repositories\Account\v1\Transformers\SchoolDetailTransformer;
-use App\Repositories\Account\v1\Transformers\StudentDetailTransformer;
-use App\Repositories\Account\v1\Transformers\TeacherDetailTransformer;
-use App\Traits\v1\Globals\GlobalUtils;
-use App\Traits\v1\Globals\ResponseCodes;
+use Fuindy\Http\Controllers\BackEnd\API\v1\Traits\IssueTokenTrait;
+use Fuindy\Repositories\Account\v1\Logics\Users\UserAuthUseCase;
+use Fuindy\Repositories\Account\v1\Models\User;
+use Fuindy\Repositories\Account\v1\Transformers\SchoolDetailTransformer;
+use Fuindy\Repositories\Account\v1\Transformers\StudentDetailTransformer;
+use Fuindy\Repositories\Account\v1\Transformers\TeacherDetailTransformer;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Traits\v1\Globals\ResponseCodes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;

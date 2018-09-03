@@ -13,7 +13,7 @@ class CreateNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('notifications', function (Blueprint $table) {
+        Schema::connection('customer')->create('notifications', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('group_id');
             $table->uuid('user_id');
@@ -40,6 +40,6 @@ class CreateNotificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notifications');
+        Schema::connection('customer')->dropIfExists('notifications');
     }
 }

@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('App.Users.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+Broadcast::channel('notify.{customerId}', function ($user, $customerId){
+    $customer = $user->customer;
+
+    if (!$customer){
+        return false;
+    }
+
+    return $customer->id==$customerId;
+});

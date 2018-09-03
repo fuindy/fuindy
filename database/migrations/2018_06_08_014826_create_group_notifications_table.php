@@ -13,7 +13,7 @@ class CreateGroupNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_notifications', function (Blueprint $table) {
+        Schema::connection('customer')->create('group_notifications', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateGroupNotificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_notifications');
+        Schema::connection('customer')->dropIfExists('group_notifications');
     }
 }

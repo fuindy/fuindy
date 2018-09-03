@@ -1,14 +1,18 @@
 <?php
 
-namespace App\Repositories\Teacher\v1\Models;
+namespace Fuindy\Repositories\Teacher\v1\Models;
 
-use App\Repositories\Components\v1\Models\GroupOrganisationTeacher;
-use App\Repositories\School\v1\Models\School;
+use Fuindy\Repositories\Components\v1\Models\GroupOrganisationTeacher;
+use Fuindy\Repositories\School\v1\Models\School;
 use Illuminate\Database\Eloquent\Model;
 
 class TeacherOrganisation extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = 'teacher_organisations';
+
+    protected $guarded = [''];
 
     public function teacher()
     {

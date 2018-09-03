@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Repositories\School\v1\Models;
+namespace Fuindy\Repositories\School\v1\Models;
 
-use App\Repositories\Account\v1\Models\User;
-use App\Repositories\Components\v1\Models\GroupSchool;
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationDate;
+use Fuindy\Repositories\Account\v1\Models\User;
+use Fuindy\Repositories\Components\v1\Models\GroupSchool;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationDate;
 use Illuminate\Database\Eloquent\Model;
 
 class School extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = 'schools';
 
     public $incrementing = false;

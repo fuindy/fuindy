@@ -13,7 +13,7 @@ class CreateRegistrationAttachmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('registration_attachments', function (Blueprint $table) {
+        Schema::connection('customer')->create('registration_attachments', function (Blueprint $table) {
             $table->increments('id');
             $table->char('registration_student_id', 36);
             $table->string('attachment');
@@ -28,6 +28,6 @@ class CreateRegistrationAttachmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registration_attachments');
+        Schema::connection('customer')->dropIfExists('registration_attachments');
     }
 }

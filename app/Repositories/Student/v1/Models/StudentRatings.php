@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Repositories\Student\v1\Models;
+namespace Fuindy\Repositories\Student\v1\Models;
 
-use App\Repositories\Account\v1\Models\Customer;
+use Fuindy\Repositories\Account\v1\Models\Customer;
 use Illuminate\Database\Eloquent\Model;
 
 class StudentRatings extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = 'student_ratings';
+
+    protected $guarded = [''];
 
     public function class()
     {

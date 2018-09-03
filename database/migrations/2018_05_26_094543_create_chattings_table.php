@@ -13,8 +13,8 @@ class CreateChattingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chattings', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::connection('chatting')->create('chattings', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->char('friend_id', 36);
             $table->string('from', 32);
             $table->string('to', 32);
@@ -30,6 +30,6 @@ class CreateChattingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chattings');
+        Schema::connection('chatting')->dropIfExists('chattings');
     }
 }

@@ -1,5 +1,5 @@
 /**
- * Created by kevinpurwono on 10/11/17.
+ * Created by yuswa on 31/07/18.
  */
 $(document).ready(function () {
 

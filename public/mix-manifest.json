@@ -1,6 +1,5 @@
 {
-    "/js/display/v1/display.js": "/js/display/v1/display.js?id=415ddbf27e7b03388d63",
-    "/scaffolding/js/app.js": "/scaffolding/js/app.js?id=c527eba4cdfe0195bad0",
+    "/scaffolding/js/app.js": "/scaffolding/js/app.js?id=b289fb7374520979db35",
     "/scaffolding/core/js/core-theme.js": "/scaffolding/core/js/core-theme.js?id=90f26dca0ee76821fe51",
     "/scaffolding/css/app.css": "/scaffolding/css/app.css?id=7679c1aa9a46c2edb607",
     "/plugins/css/pace-theme-flash.css": "/plugins/css/pace-theme-flash.css?id=1df8358407bf69811e31",
@@ -9,6 +8,7 @@
     "/plugins/css/select2.min.css": "/plugins/css/select2.min.css?id=1f0229f4a835adde370c",
     "/plugins/css/switchery.min.css": "/plugins/css/switchery.min.css?id=3d5c5f2d195cad6c3658",
     "/plugins/css/datepicker3.css": "/plugins/css/datepicker3.css?id=881c2765e8ac2489d8e8",
+    "/plugins/css/daterangepicker-bs3.css": "/plugins/css/daterangepicker-bs3.css?id=26b5277d9feef2349094",
     "/plugins/css/bootstrap-timepicker.min.css": "/plugins/css/bootstrap-timepicker.min.css?id=04888e62d9530327fa70",
     "/plugins/js/pace.min.js": "/plugins/js/pace.min.js?id=fe9335c2fc28b9581b35",
     "/plugins/js/jquery-1.11.1.min.js": "/plugins/js/jquery-1.11.1.min.js?id=4dc834d16a0d219d5c2b",

@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Repositories\RegistrationStudent\v1\Models;
+namespace Fuindy\Repositories\RegistrationStudent\v1\Models;
 
-use App\Repositories\School\v1\Models\School;
+use Fuindy\Repositories\School\v1\Models\School;
 use Illuminate\Database\Eloquent\Model;
 
 class RegistrationDate extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = 'registration_dates';
 
     protected $guarded = [''];

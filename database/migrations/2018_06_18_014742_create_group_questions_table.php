@@ -13,7 +13,7 @@ class CreateGroupQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_questions', function (Blueprint $table) {
+        Schema::connection('customer')->create('group_questions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateGroupQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_questions');
+        Schema::connection('customer')->dropIfExists('group_questions');
     }
 }

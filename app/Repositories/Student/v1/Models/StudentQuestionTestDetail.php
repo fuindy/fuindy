@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Repositories\Student\v1\Models;
+namespace Fuindy\Repositories\Student\v1\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class StudentQuestionTestDetail extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = "student_question_test_details";
 
     public $incrementing = false;

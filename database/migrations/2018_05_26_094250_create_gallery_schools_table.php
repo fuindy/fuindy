@@ -13,10 +13,12 @@ class CreateGallerySchoolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gallery_schools', function (Blueprint $table) {
+        Schema::connection('customer')->create('gallery_schools', function (Blueprint $table) {
             $table->increments('id');
             $table->char('school_id', 36);
-            $table->string('gallery_school');
+            $table->string('caption')->nullable();
+            $table->char('date_upload', 25);
+            $table->char('last_update', 25)->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateGallerySchoolsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gallery_schools');
+        Schema::connection('customer')->dropIfExists('gallery_schools');
     }
 }

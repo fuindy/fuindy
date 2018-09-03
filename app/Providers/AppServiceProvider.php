@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Providers;
+namespace Fuindy\Providers;
 
+use Fuindy\Repositories\Notifications\v1\Services\PushNotification;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
@@ -26,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         Passport::ignoreMigrations();
+        $this->app->bind('PushNotification', PushNotification::class);
     }
 }

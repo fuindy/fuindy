@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Repositories\Chatting\v1\Models;
+namespace Fuindy\Repositories\Chatting\v1\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Chatting extends Model
 {
+    protected $connection = 'chatting';
+
     protected $table = 'chattings';
 
     public function friend()

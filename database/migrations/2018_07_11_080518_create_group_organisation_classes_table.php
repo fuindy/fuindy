@@ -13,7 +13,7 @@ class CreateGroupOrganisationClassesTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_organisation_classes', function (Blueprint $table) {
+        Schema::connection('customer')->create('group_organisation_classes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateGroupOrganisationClassesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_organisation_classes');
+        Schema::connection('customer')->dropIfExists('group_organisation_classes');
     }
 }

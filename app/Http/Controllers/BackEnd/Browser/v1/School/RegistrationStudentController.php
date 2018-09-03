@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\Browser\v1\School;
+namespace Fuindy\Http\Controllers\BackEnd\Browser\v1\School;
 
-use App\Repositories\School\v1\Logics\RegistrationStudentLogic;
+use Fuindy\Repositories\School\v1\Logics\RegistrationStudentLogic;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Fuindy\Http\Controllers\Controller;
 
 class RegistrationStudentController extends Controller
 {

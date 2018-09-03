@@ -13,7 +13,7 @@ class CreateQuestionAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('question_answers', function (Blueprint $table) {
+        Schema::connection('customer')->create('question_answers', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name', 10);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateQuestionAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_answers');
+        Schema::connection('customer')->dropIfExists('question_answers');
     }
 }

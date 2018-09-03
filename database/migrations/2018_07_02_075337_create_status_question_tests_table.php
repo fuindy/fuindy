@@ -13,7 +13,7 @@ class CreateStatusQuestionTestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('status_question_tests', function (Blueprint $table) {
+        Schema::connection('customer')->create('status_question_tests', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateStatusQuestionTestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_question_tests');
+        Schema::connection('customer')->dropIfExists('status_question_tests');
     }
 }

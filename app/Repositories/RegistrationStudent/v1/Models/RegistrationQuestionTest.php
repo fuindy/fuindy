@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Repositories\RegistrationStudent\v1\Models;
+namespace Fuindy\Repositories\RegistrationStudent\v1\Models;
 
-use App\Repositories\Components\v1\Models\GroupParticipantQuestionTest;
-use App\Repositories\Components\v1\Models\StatusQuestionTest;
-use App\Repositories\School\v1\Models\Question;
-use App\Repositories\School\v1\Models\School;
+use Fuindy\Repositories\Components\v1\Models\GroupParticipantQuestionTest;
+use Fuindy\Repositories\Components\v1\Models\StatusQuestionTest;
+use Fuindy\Repositories\School\v1\Models\Question;
+use Fuindy\Repositories\School\v1\Models\School;
 use Illuminate\Database\Eloquent\Model;
 
 class RegistrationQuestionTest extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = "registration_question_tests";
 
     public $incrementing = false;

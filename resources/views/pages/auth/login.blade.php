@@ -30,10 +30,10 @@
                 <span class=" fs-14 ">v.{{config('version.name')}}</span>
 
                 <p class="p-t-35">Sign into your pages account</p>
-                {{--@include('layouts.partials.snippets._error_alert_1')--}}
+                @include('layouts.partials.snippets._error_alert_1')
             <!-- START Login Form -->
                 <form id="form-login" class="p-t-15" role="form"  action="{{route('login')}}" method="POST">
-                    {{--action="{{route('login')}}"--}}
+                    action="{{route('login')}}"
 
                 {{csrf_field()}}
 
@@ -41,8 +41,8 @@
                     <div class="form-group form-group-default">
                         <label>Login</label>
                         <div class="controls">
-                            <input type="text" name="email" placeholder="Email" class="form-control" required
-                                   value="{{old('email')}}">
+                            <input type="text" name="name" placeholder="Username" class="form-control" required
+                                   value="{{old('name')}}">
                         </div>
                     </div>
                     <!-- END Form Control-->

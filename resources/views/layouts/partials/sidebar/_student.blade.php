@@ -1,17 +1,27 @@
-<li class="">
-    <a  href="javascript:;"class="">
-        <span class="title">Element UI</span>
-        <span class="arrow"></span>
-    </a>
-    <span class="icon-thumbnail"><i data-feather="cpu"></i></span>
-    <ul class="sub-menu">
+@can('view customer')
+    @if(request()->route()->getPrefix()=='/student')
+        <li class="open active">
+    @else
         <li class="">
-            <a href="{{asset('scaffolding/elementui/color')}}">Color</a>
-            <span class="icon-thumbnail">cl</span>
+            @endif
+            <a href="javascript:;">
+                <span class="title">Siswa</span>
+                @if(request()->route()->getPrefix()=='/student')
+                    <span class="arrow open active"></span>
+                @else
+                    <span class="arrow"></span>
+                @endif
+            </a>
+            <span class="icon-thumbnail"><i data-feather="cpu"></i></span>
+            <ul class="sub-menu">
+                <li class="">
+                    <a href="">Daftar Siswa</a>
+                    <span class="icon-thumbnail">ds</span>
+                </li>
+                <li class="">
+                    <a href="">Galery Siswa</a>
+                    <span class="icon-thumbnail">gs</span>
+                </li>
+            </ul>
         </li>
-        <li class="">
-            <a href="{{asset('scaffolding/elementui/table')}}">Table</a>
-            <span class="icon-thumbnail">tb</span>
-        </li>
-    </ul>
-</li>
+    @endcan

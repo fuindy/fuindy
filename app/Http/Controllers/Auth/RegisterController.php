@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Fuindy\Http\Controllers\Auth;
 
-use App\Repositories\Account\v1\Models\User;
-use App\Http\Controllers\Controller;
+use Fuindy\Repositories\Account\v1\Models\User;
+use Fuindy\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -59,7 +59,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Repositories\Account\v1\Models\User
+     * @return \Fuindy\Repositories\Account\v1\Models\User
      */
     protected function create(array $data)
     {
@@ -68,5 +68,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('pages.auth.registration');
     }
 }

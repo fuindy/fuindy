@@ -32,9 +32,9 @@ require(base_path($back_end . 'visitor.php'));
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
-Route::get('resources/countries', 'HomeController@testing');
+Route::get('resources/countries', 'TestingController@testing');
 //Route::get('resources/countries', function (){
 //    $test = [
 //        [
@@ -56,8 +56,11 @@ Route::get('resources/countries', 'HomeController@testing');
 
 Route::group(['prefix' => 'testing'], function () {
 
-    Route::get('/', function () {
-        return view('pages.display.dashboard');
-    });
+//    Route::group(['middleware', 'auth'], function (){
+        Route::post('religion', 'TestingController@religion');
+        Route::get('/', function () {
+            return view('home');
+        });
+//    });
 
 });

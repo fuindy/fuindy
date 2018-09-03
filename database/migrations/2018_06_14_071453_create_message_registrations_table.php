@@ -13,7 +13,7 @@ class CreateMessageRegistrationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('message_registrations', function (Blueprint $table) {
+        Schema::connection('customer')->create('message_registrations', function (Blueprint $table) {
             $table->uuid('id');
             $table->char('school_id', 36);
             $table->char('registration_student_id', 36);
@@ -31,6 +31,6 @@ class CreateMessageRegistrationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('message_registrations');
+        Schema::connection('customer')->dropIfExists('message_registrations');
     }
 }

@@ -13,7 +13,7 @@ class CreateTypeQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_questions', function (Blueprint $table) {
+        Schema::connection('customer')->create('type_questions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->integer('status');
@@ -29,6 +29,6 @@ class CreateTypeQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_questions');
+        Schema::connection('customer')->dropIfExists('type_questions');
     }
 }

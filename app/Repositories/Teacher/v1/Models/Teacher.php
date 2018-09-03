@@ -1,14 +1,18 @@
 <?php
 
-namespace App\Repositories\Teacher\v1\Models;
+namespace Fuindy\Repositories\Teacher\v1\Models;
 
-use App\Repositories\Components\v1\Models\Religion;
-use App\Repositories\Components\v1\Models\StatusTeacher;
+use Fuindy\Repositories\Components\v1\Models\Religion;
+use Fuindy\Repositories\Components\v1\Models\StatusTeacher;
 use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = 'teachers';
+
+    protected $guarded = [''];
 
     public function status()
     {

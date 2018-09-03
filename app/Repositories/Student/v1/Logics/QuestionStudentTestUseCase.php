@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Student\v1\Logics;
+namespace Fuindy\Repositories\Student\v1\Logics;
 
 
 use Illuminate\Http\Request;

@@ -6,11 +6,11 @@ Route::group(['prefix' => 'v1/b'], function () {
 
     Route::group(['namespace' => 'BackEnd\Browser\v1\Student', 'prefix' => 'student'], function () {
 
-        Route::group(['middleware', 'auth.student'], function () {
+//        Route::group(['middleware', 'auth.student'], function () {
 
             Route::get('registered', 'RegistrationStudentController@getDataRegistration');
 
-            Route::group(['prefix' => 'question.js'], function (){
+            Route::group(['prefix' => 'question'], function (){
 
                 Route::get('list', 'QuestionStudentTestController@getListQuestion');
                 Route::get('detail', 'QuestionStudentTestController@getQuestionStudent');
@@ -18,7 +18,14 @@ Route::group(['prefix' => 'v1/b'], function () {
 
             });
 
-        });
+            Route::group(['prefix' => 'attendance'], function (){
+
+                Route::post('create', 'AttendanceStudentController@createAttendance');
+                Route::get('list-student', 'AttendanceStudentController@listStudent');
+                Route::post('student', 'AttendanceStudentController@checkAttendance');
+            });
+
+//        });
 
     });
 

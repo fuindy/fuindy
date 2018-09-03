@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\Browser\v1\RegistrationStudent;
+namespace Fuindy\Http\Controllers\BackEnd\Browser\v1\RegistrationStudent;
 
-use App\Repositories\RegistrationStudent\v1\Jobs\AnswerQuestion;
-use App\Repositories\RegistrationStudent\v1\Logics\QuestionRegistrationLogic;
-use App\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Repositories\RegistrationStudent\v1\Jobs\AnswerQuestion;
+use Fuindy\Repositories\RegistrationStudent\v1\Logics\QuestionRegistrationLogic;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Fuindy\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class QuestionRegistrationTestController extends Controller

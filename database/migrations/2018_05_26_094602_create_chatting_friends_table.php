@@ -13,10 +13,11 @@ class CreateChattingFriendsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chatting_friends', function (Blueprint $table) {
+        Schema::connection('chatting')->create('chatting_friends', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('request_id', 50);
             $table->string('receiver_id', 50);
+            $table->tinyInteger('is_deleted')->default(0);
             $table->timestamps();
 
             $table->primary('id');
@@ -30,6 +31,6 @@ class CreateChattingFriendsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chatting_friends');
+        Schema::connection('chatting')->dropIfExists('chatting_friends');
     }
 }

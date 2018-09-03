@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits\v1\Account;
+namespace Fuindy\Traits\v1\Account;
 
-use App\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
 use Illuminate\Support\Facades\Auth;
 
 trait LoginAttemptCase

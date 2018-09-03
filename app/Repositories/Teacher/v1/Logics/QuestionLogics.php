@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Repositories\Teacher\v1\Logics;
+namespace Fuindy\Repositories\Teacher\v1\Logics;
 
-use App\Repositories\School\v1\Models\Question;
-use App\Repositories\School\v1\Models\QuestionDetail;
-use App\Repositories\Student\v1\Models\Student;
-use App\Repositories\Student\v1\Models\StudentQuestionTest;
-use App\Traits\v1\Globals\GlobalComponentCode;
-use App\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Repositories\School\v1\Models\Question;
+use Fuindy\Repositories\School\v1\Models\QuestionDetail;
+use Fuindy\Repositories\Student\v1\Models\Student;
+use Fuindy\Repositories\Student\v1\Models\StudentQuestionTest;
+use Fuindy\Traits\v1\Globals\GlobalComponentCode;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
 use Illuminate\Support\Facades\Auth;
 
 class QuestionLogics extends QuestionUseCase

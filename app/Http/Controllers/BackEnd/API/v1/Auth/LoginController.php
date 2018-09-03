@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\API\v1\Auth;
+namespace Fuindy\Http\Controllers\BackEnd\API\v1\Auth;
 
-use App\Http\Controllers\BackEnd\API\v1\Traits\IssueTokenTrait;
-use App\Repositories\Account\v1\Logics\Users\UserAuthLogic;
+use Fuindy\Http\Controllers\BackEnd\API\v1\Traits\IssueTokenTrait;
+use Fuindy\Repositories\Account\v1\Logics\Users\UserAuthLogic;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Fuindy\Http\Controllers\Controller;
 use Laravel\Passport\Client;
 
 class LoginController extends Controller

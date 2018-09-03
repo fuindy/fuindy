@@ -29,7 +29,7 @@
         <ul class="hidden-md-down notification-list no-margin hidden-sm-down b-grey b-r no-style p-l-30 p-r-20">
             <li class="p-r-10 inline">
                 <div class="dropdown">
-                    <notification-btn></notification-btn>
+                    <notification-button></notification-button>
                 </div>
             </li>
             <li class="p-r-10 inline">
@@ -83,35 +83,36 @@
 
     $(document).ready(function () {
 //        $('.easy-autocomplete, .eac-square').css('width', '100% !important')
-        $('.easy-autocomplete, .eac-square').addClass('search-easy-autocomplete')
-    });
-    var options = {
+        $('.easy-autocomplete, .eac-square').addClass('search-easy-autocomplete');
 
-        url: "resources/countries",
+        var options = {
 
-        getValue: function(element) {
-            return element.name;
-        },
+            url: "resources/countries",
 
-        template: {
-            type: "links",
-            fields: {
-                link: "id"
-            }
-        },
-
-        list: {
-            maxNumberOfElements: 100,
-            match: {
-                enabled: true
+            getValue: function(element) {
+                return element.name;
             },
-            sort: {
-                enabled: true
-            }
-        },
-        theme: "square"
-    };
 
-    $("#search-box").easyAutocomplete(options);
+            template: {
+                type: "links",
+                fields: {
+                    link: "id"
+                }
+            },
+
+            list: {
+                maxNumberOfElements: 100,
+                match: {
+                    enabled: true
+                },
+                sort: {
+                    enabled: true
+                }
+            },
+            theme: "square"
+        };
+
+        $("#search-box").easyAutocomplete(options);
+    });
 </script>
 @endpush

@@ -13,7 +13,7 @@ class CreateReligionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('religions', function (Blueprint $table) {
+        Schema::connection('customer')->create('religions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 32);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateReligionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('religions');
+        Schema::connection('customer')->dropIfExists('religions');
     }
 }

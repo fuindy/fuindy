@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http;
+namespace Fuindy\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -16,9 +16,9 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \App\Http\Middleware\TrimStrings::class,
+        \Fuindy\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \App\Http\Middleware\TrustProxies::class,
+        \Fuindy\Http\Middleware\TrustProxies::class,
     ];
 
     /**
@@ -28,12 +28,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \App\Http\Middleware\EncryptCookies::class,
+            \Fuindy\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-//            \App\Http\Middleware\VerifyCsrfToken::class,
+//            \Fuindy\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -51,16 +51,16 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authentication\AuthenticateUser::class,
-        'auth.admin' => \App\Http\Middleware\Authentication\AuthenticateAdmin::class,
-        'auth.school' => \App\Http\Middleware\Authentication\AuthenticateSchool::class,
-        'auth.student' => \App\Http\Middleware\Authentication\AuthenticateStudent::class,
-        'auth.teacher' => \App\Http\Middleware\Authentication\AuthenticateTeacher::class,
+        'auth' => \Fuindy\Http\Middleware\Authentication\AuthenticateUser::class,
+        'auth.admin' => \Fuindy\Http\Middleware\Authentication\AuthenticateAdmin::class,
+        'auth.school' => \Fuindy\Http\Middleware\Authentication\AuthenticateSchool::class,
+        'auth.student' => \Fuindy\Http\Middleware\Authentication\AuthenticateStudent::class,
+        'auth.teacher' => \Fuindy\Http\Middleware\Authentication\AuthenticateTeacher::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \Fuindy\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,

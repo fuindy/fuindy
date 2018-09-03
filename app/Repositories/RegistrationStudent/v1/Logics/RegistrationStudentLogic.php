@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Repositories\RegistrationStudent\v1\Logics;
+namespace Fuindy\Repositories\RegistrationStudent\v1\Logics;
 
-use App\Http\Controllers\BackEnd\Browser\v1\Traits\Config;
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationAttachment;
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationDate;
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationStudent;
-use App\Repositories\School\v1\Models\School;
-use App\Repositories\Student\v1\Models\Student;
-use App\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Http\Controllers\BackEnd\Browser\v1\Traits\Config;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationAttachment;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationDate;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationStudent;
+use Fuindy\Repositories\School\v1\Models\School;
+use Fuindy\Repositories\Student\v1\Models\Student;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;

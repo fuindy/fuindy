@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\School\v1\Transformers;
+namespace Fuindy\Repositories\School\v1\Transformers;
 
-use App\Repositories\School\v1\Models\School;
+use Fuindy\Repositories\School\v1\Models\School;
 use League\Fractal\TransformerAbstract;
 
 class SchoolTransformer extends TransformerAbstract

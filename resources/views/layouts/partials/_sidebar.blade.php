@@ -18,7 +18,12 @@
         <!-- BEGIN SIDEBAR MENU ITEMS-->
         <ul class="menu-items">
 
-            @include('layouts.partials.sidebar._dashboard')
+            @include('layouts.partials.sidebar._homepage')
+            @include('layouts.partials.sidebar._attendance')
+            @include('layouts.partials.sidebar._question')
+            @include('layouts.partials.sidebar._registration_student')
+            @include('layouts.partials.sidebar._school')
+            @include('layouts.partials.sidebar._teacher')
             @include('layouts.partials.sidebar._student')
 
         </ul>

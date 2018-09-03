@@ -13,7 +13,7 @@ class CreateDepartmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::connection('customer')->create('departments', function (Blueprint $table) {
             $table->uuid('id');
             $table->char('school_id', 36);
             $table->string('name', 150);
@@ -31,6 +31,6 @@ class CreateDepartmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departments');
+        Schema::connection('customer')->dropIfExists('departments');
     }
 }

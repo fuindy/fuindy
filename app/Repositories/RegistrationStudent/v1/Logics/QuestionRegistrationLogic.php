@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Repositories\RegistrationStudent\v1\Logics;
+namespace Fuindy\Repositories\RegistrationStudent\v1\Logics;
 
-use App\Repositories\Components\v1\Models\HistoryQuestion;
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationQuestionTest;
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationQuestionTestDetail;
-use App\Repositories\School\v1\Models\QuestionDetail;
-use App\Traits\v1\Globals\GlobalComponentCode;
-use App\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Repositories\Components\v1\Models\HistoryQuestion;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationQuestionTest;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationQuestionTestDetail;
+use Fuindy\Repositories\School\v1\Models\QuestionDetail;
+use Fuindy\Traits\v1\Globals\GlobalComponentCode;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
 use Illuminate\Support\Carbon;
 
 class QuestionRegistrationLogic extends QuestionRegistrationUseCase

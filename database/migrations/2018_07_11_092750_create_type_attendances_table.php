@@ -13,7 +13,7 @@ class CreateTypeAttendancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_attendances', function (Blueprint $table) {
+        Schema::connection('customer')->create('type_attendances', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateTypeAttendancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_attendances');
+        Schema::connection('customer')->dropIfExists('type_attendances');
     }
 }

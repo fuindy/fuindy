@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\FrontEnd\v1\RegistrationStudent;
+namespace Fuindy\Http\Controllers\FrontEnd\v1\RegistrationStudent;
 
-use App\Repositories\RegistrationStudent\v1\Models\RegistrationDate;
-use App\Repositories\School\v1\Models\School;
-use App\Traits\v1\Globals\GlobalModels;
+use Fuindy\Repositories\RegistrationStudent\v1\Models\RegistrationDate;
+use Fuindy\Repositories\School\v1\Models\School;
+use Fuindy\Traits\v1\Globals\GlobalModels;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Fuindy\Http\Controllers\Controller;
 use Illuminate\Support\Carbon;
 
 class ViewController extends Controller

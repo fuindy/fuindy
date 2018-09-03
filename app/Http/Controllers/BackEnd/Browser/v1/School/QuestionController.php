@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\Browser\v1\School;
+namespace Fuindy\Http\Controllers\BackEnd\Browser\v1\School;
 
-use App\Repositories\Components\v1\Models\GroupParticipantQuestionTest;
-use App\Repositories\Components\v1\Transformers\BasicComponentTransformer;
-use App\Repositories\School\v1\Logics\QuestionLogics;
-use App\Repositories\School\v1\Transformers\ListQuestionTestTransformer;
-use App\Repositories\School\v1\Transformers\ListQuestionTransformer;
-use App\Traits\v1\Globals\GlobalComponentCode;
+use Fuindy\Repositories\Components\v1\Models\GroupParticipantQuestionTest;
+use Fuindy\Repositories\Components\v1\Transformers\BasicComponentTransformer;
+use Fuindy\Repositories\School\v1\Logics\QuestionLogics;
+use Fuindy\Repositories\School\v1\Transformers\ListQuestionTestTransformer;
+use Fuindy\Repositories\School\v1\Transformers\ListQuestionTransformer;
+use Fuindy\Traits\v1\Globals\GlobalComponentCode;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Fuindy\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;

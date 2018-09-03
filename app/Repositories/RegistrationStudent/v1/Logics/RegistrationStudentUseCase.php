@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\RegistrationStudent\v1\Logics;
+namespace Fuindy\Repositories\RegistrationStudent\v1\Logics;
 
-use App\Http\Requests\v1\Student\RegistrationStudentRequest;
+use Fuindy\Http\Requests\v1\Student\RegistrationStudentRequest;
 use Illuminate\Http\Request;
 
 abstract class RegistrationStudentUseCase

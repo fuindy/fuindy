@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\Browser\v1\Teacher;
+namespace Fuindy\Http\Controllers\BackEnd\Browser\v1\Teacher;
 
-use App\Repositories\Components\v1\Models\Department;
-use App\Repositories\Components\v1\Models\GroupParticipantQuestionTest;
-use App\Repositories\Components\v1\Models\TypeQuestion;
-use App\Repositories\Components\v1\Transformers\BasicComponentTransformer;
-use App\Repositories\School\v1\Transformers\ListQuestionTestTransformer;
-use App\Repositories\School\v1\Transformers\ListQuestionTransformer;
-use App\Repositories\Student\v1\Models\StudentClass;
-use App\Repositories\Teacher\v1\Jobs\AddQuestion;
-use App\Repositories\Teacher\v1\Logics\QuestionLogics;
-use App\Traits\v1\Globals\GlobalComponentCode;
-use App\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Repositories\Components\v1\Models\Department;
+use Fuindy\Repositories\Components\v1\Models\GroupParticipantQuestionTest;
+use Fuindy\Repositories\Components\v1\Models\TypeQuestion;
+use Fuindy\Repositories\Components\v1\Transformers\BasicComponentTransformer;
+use Fuindy\Repositories\School\v1\Transformers\ListQuestionTestTransformer;
+use Fuindy\Repositories\School\v1\Transformers\ListQuestionTransformer;
+use Fuindy\Repositories\Student\v1\Models\StudentClass;
+use Fuindy\Repositories\Teacher\v1\Jobs\AddQuestion;
+use Fuindy\Repositories\Teacher\v1\Logics\QuestionLogics;
+use Fuindy\Traits\v1\Globals\GlobalComponentCode;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Fuindy\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;

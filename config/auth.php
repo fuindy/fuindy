@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \App\Repositories\Account\v1\Models\User::class,
+            'model' => \Fuindy\Repositories\Account\v1\Models\User::class,
         ],
 
         // 'users' => [

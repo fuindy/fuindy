@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Repositories\Student\v1\Transformers;
+namespace Fuindy\Repositories\Student\v1\Transformers;
 
-use App\Repositories\School\v1\Models\QuestionDetail;
-use App\Repositories\Student\v1\Models\StudentQuestionTest;
+use Fuindy\Repositories\School\v1\Models\QuestionDetail;
+use Fuindy\Repositories\Student\v1\Models\StudentQuestionTest;
 use League\Fractal\TransformerAbstract;
 
 class ListQuestionTransformer extends TransformerAbstract

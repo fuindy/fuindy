@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\Browser\v1\RegistrationStudent;
+namespace Fuindy\Http\Controllers\BackEnd\Browser\v1\RegistrationStudent;
 
-use App\Http\Requests\v1\Student\RegistrationStudentRequest;
-use App\Repositories\RegistrationStudent\v1\Logics\RegistrationStudentLogic;
-use App\Traits\v1\Globals\GlobalUtils;
+use Fuindy\Http\Requests\v1\Student\RegistrationStudentRequest;
+use Fuindy\Repositories\RegistrationStudent\v1\Logics\RegistrationStudentLogic;
+use Fuindy\Traits\v1\Globals\GlobalUtils;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Fuindy\Http\Controllers\Controller;
 
 class RegistrationStudentController extends Controller
 {
@@ -14,7 +14,7 @@ class RegistrationStudentController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     public function getSchool()

@@ -1,19 +1,28 @@
 <?php
 
-namespace App\Repositories\RegistrationStudent\v1\Models;
+namespace Fuindy\Repositories\RegistrationStudent\v1\Models;
 
-use App\Repositories\Components\v1\Models\Department;
-use App\Repositories\Components\v1\Models\Religion;
-use App\Repositories\Components\v1\Models\StatusRegistration;
-use App\Repositories\School\v1\Models\School;
+use Fuindy\Repositories\Account\v1\Models\Customer;
+use Fuindy\Repositories\Components\v1\Models\Department;
+use Fuindy\Repositories\Components\v1\Models\Religion;
+use Fuindy\Repositories\Components\v1\Models\StatusRegistration;
+use Fuindy\Repositories\School\v1\Models\School;
 use Illuminate\Database\Eloquent\Model;
 
 class RegistrationStudent extends Model
 {
+    protected $connection = 'customer';
+
     protected $table = 'registration_students';
+
     public $incrementing = false;
+
     protected $guarded = [''];
-    protected $primaryKey='id';
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
 
     public function school()
     {

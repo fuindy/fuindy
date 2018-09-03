@@ -13,7 +13,7 @@ class CreateHistoryQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('history_questions', function (Blueprint $table) {
+        Schema::connection('customer')->create('history_questions', function (Blueprint $table) {
             $table->increments('id');
             $table->char('question_id', 36);
             $table->char('school_id', 36);
@@ -33,6 +33,6 @@ class CreateHistoryQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('history_questions');
+        Schema::connection('customer')->dropIfExists('history_questions');
     }
 }
